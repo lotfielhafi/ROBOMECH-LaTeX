@@ -34,13 +34,13 @@
 \oddsidemargin  -10.4mm            % 15mm(left)
 \evensidemargin -10.4mm
 \columnsep      6mm
-\parindent      1zw
+\parindent      1\zw
 
 % 行間の設定
 \setlength{\baselineskip}{4.2mm}
 %\renewcommand{\baselinestretch}{1.0}
 \renewcommand{\baselinestretch}{0.93}
-%\kanjiskip=0.023zw plus 0.015zw minus 0.015zw
+%\kanjiskip=0.023\zw plus 0.015\zw minus 0.015\zw
 
 % for list environment
 \leftmargini   2em
@@ -106,14 +106,14 @@
 % 章題の調整
 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\def\section{\@startsection {section}{1}{\z@}{0.8zh plus 0.2zh minus
-    0.2zh}{0.4zh plus 0.1zh minus 0.1zh}{\centering\normalsize\bf}}
-\def\subsection{\@startsection{subsection}{2}{\z@}{0.8zh plus 0.15zh
-    minus 0.15zh}{0.1zh plus 0.1zh minus 0zh}{\small\bf}}
-\def\subsubsection{\@startsection{subsubsection}{3}{\z@}{0.2zh plus
-    0.1zh minus 0.1zh}{0.1zh plus 0.1zh minus 0.1zh}{\small\bf}}
-\def\paragraph{\@startsection{paragraph}{4}{\z@}{0zh}{0zh}{\small\bf}}
-\def\subparagraph{\@startsection{subparagraph}{4}{\parindent}{0zh}{0zh}{\small\bf}}
+\def\section{\@startsection {section}{1}{\z@}{0.8\zh plus 0.2\zh minus
+    0.2\zh}{0.4\zh plus 0.1\zh minus 0.1\zh}{\centering\normalsize\bf}}
+\def\subsection{\@startsection{subsection}{2}{\z@}{0.8\zh plus 0.15\zh
+    minus 0.15\zh}{0.1\zh plus 0.1\zh minus 0\zh}{\small\bf}}
+\def\subsubsection{\@startsection{subsubsection}{3}{\z@}{0.2\zh plus
+    0.1\zh minus 0.1\zh}{0.1\zh plus 0.1\zh minus 0.1\zh}{\small\bf}}
+\def\paragraph{\@startsection{paragraph}{4}{\z@}{0\zh}{0\zh}{\small\bf}}
+\def\subparagraph{\@startsection{subparagraph}{4}{\parindent}{0\zh}{0\zh}{\small\bf}}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % ここから原@電総研(hara@etl.go.jp)さんのスタイルのパクリ
@@ -295,17 +295,17 @@ $^{%
 % 日本語，英語のタイトルの表示 %%%%%%%%%%%%%%%%%%%
 
  \begin{center}
-  \vskip -2zh%
+  \vskip -2\zh%
  {\@titlefont \@title \par}     % 日本語のタイトル
  {\@subtitlefont \@subtitle \par}     % 日本語のタイトル
 
- \vskip 1.0zh
+ \vskip 1.0\zh
  {\@etitlefont \@etitle \par}        % 英語のタイトル
  {\@esubtitlefont \@esubtitle}        % 英語のタイトル
 
 % 日本語，英語の著者名の表示 %%%%%%%%%%%%%%%%%%%
  \null
- \vskip 0.5zh
+ \vskip 0.5\zh
  \begin{center} %flushleft}
    {%\lineskip .5em
      \begin{tabular}[t]{l}
@@ -362,12 +362,12 @@ $^{%
       %{\bf Abstract: }
 	\qquad\@abstract
 
-  \vskip 1.0zh
+  \vskip 1.0\zh
     {\itshape\textbf{Key Words}\bf: }{\small \@keywords}
 
     \end{minipage}
   \end{center}
-  \vskip 0.5zh
+  \vskip 0.5\zh
 }
 
 
