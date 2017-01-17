@@ -1,0 +1,374 @@
+%
+%        ロボティクス・メカトロニクス講演会 スタイルファイル
+%                                 (ロボット学会の予稿集のヤツを参考)
+%               Ver. 1.0          by E.Uchibe
+%               Ver. 2.0          by ROBOMECH2014 executive committee
+%
+% このスタイルファイルの機能:
+% ○ 機械学会講演用スタイルファイルの様式に調整している
+% ○ figure，table のキャプション変更，複数行にまたがる場合にも適当に
+%    インデントしてくれる．
+% ○ maketitle の変更．title, author, affiliation, mauthor を設定する．
+%    (原@電総研さん)
+%
+% See also.
+%   http://www.robotics.is.tohoku.ac.jp/robomec98/faq.html#q1
+\typeout{Document Style Option 'For robomec style file.' by E.Uchibe <31 Jan 95>}
+\typeout{modified by ROBOMECH2014 executive committee <7 Feb 14>}
+\def\@twoc{}
+\twocolumn
+\sloppy
+\flushbottom
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%       サイズの設定
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\textheight     247mm %           % 297mm - 25mm(head) - 25mm(bottom)
+\textwidth      180mm %           % 210mm - 15mm(left) - 15mm(right)
+
+\topmargin      -0.4mm            % 25mm(head) 
+\headheight     0mm
+\headsep        0mm
+
+\oddsidemargin  -10.4mm            % 15mm(left)
+\evensidemargin -10.4mm
+\columnsep      6mm
+\parindent      1zw
+
+% 行間の設定
+\setlength{\baselineskip}{4.2mm}
+%\renewcommand{\baselinestretch}{1.0}
+\renewcommand{\baselinestretch}{0.93}
+%\kanjiskip=0.023zw plus 0.015zw minus 0.015zw
+
+% for list environment
+\leftmargini   2em
+\leftmarginv   .5em
+\leftmarginvi  .5em
+
+% for footnote
+\marginparwidth 48pt
+\marginparsep   10pt
+
+\abovecaptionskip	0pt
+\belowcaptionskip	-3pt
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Citation  文中の引用番号をかっこなしとする．
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\renewcommand{\@cite}[2]{{#1\if@tempswa , #2\fi}}
+%       文献引用番号を肩に乗せる．
+%\def\@cite#1#2{$^{\mbox{\scriptsize {#1\if@tempswa , #2\fi})}}$}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% figure, table caption を2行以上処理するために
+% caption の出力形式も変える．
+%
+% \@makecaption{NUMBER}{TEXT} : Macro to make a figure or table caption.  
+%      NUMBER : Figure or table number--e.g., 'Figure 3.2' 
+%      TEXT   : The caption text.
+%  Macro should be called inside a \parbox of right width, with \normalsize.
+% changed 25 Jun 86 to fix according to Howard Trickey:
+% instead of \unhbox\@tempboxa\par we do #1: #2\par
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\long\def\@makecaption#1#2{
+   \vskip 10pt 
+   \setbox\@tempboxa\hbox{#1 #2}
+   \ifdim \wd\@tempboxa >\hsize   % IF longer than one line:
+       \@hangfrom{#1 }#2\par %\ignorespaces #2\strut \par %chaged on 89-09-07
+       %#1 #2\par                 %   THEN set as ordinary paragraph.
+     \else                        %   ELSE  center.
+       \hbox to\hsize{\hfil\box\@tempboxa\hfil}  
+   \fi}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%       Fig. 環境の caption を " {\bf Fig. ?} " に変える
+
+%\long\def\@makecaption#1#2{
+% \vskip 10pt 
+% \setbox\@tempboxa\hbox{#1 #2}
+% \ifdim \wd\@tempboxa >\hsize \unhbox\@tempboxa\par \else \hbox
+%to\hsize{\hfil\box\@tempboxa\hfil} 
+% \fi}
+\def\fnum@figure{{\bf Fig.\thefigure}}
+
+%       Table 環境の caption を `` {\bf Table ?}'' に変える
+\def\fnum@table{{\bf Table \thetable}}
+
+\def\reffig#1{{図 }\ref{#1}}
+\def\reftab#1{{表 }\ref{#1}}
+\def\refeqn#1{{式 }(\ref{#1})}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% 章題の調整
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\def\section{\@startsection {section}{1}{\z@}{0.8zh plus 0.2zh minus
+    0.2zh}{0.4zh plus 0.1zh minus 0.1zh}{\centering\normalsize\bf}}
+\def\subsection{\@startsection{subsection}{2}{\z@}{0.8zh plus 0.15zh
+    minus 0.15zh}{0.1zh plus 0.1zh minus 0zh}{\small\bf}}
+\def\subsubsection{\@startsection{subsubsection}{3}{\z@}{0.2zh plus
+    0.1zh minus 0.1zh}{0.1zh plus 0.1zh minus 0.1zh}{\small\bf}}
+\def\paragraph{\@startsection{paragraph}{4}{\z@}{0zh}{0zh}{\small\bf}}
+\def\subparagraph{\@startsection{subparagraph}{4}{\parindent}{0zh}{0zh}{\small\bf}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% ここから原@電総研(hara@etl.go.jp)さんのスタイルのパクリ
+% title, author, affiliation, mauthor などの設定が可能．
+%
+%  Fonts define
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\def\titlefont#1#2{\gdef\@titlefont{#1}\gdef\@etitlefont{#2}}
+\def\authorfont#1#2{\gdef\@authorfont{#1}\gdef\eauthorfont{#2}}
+\def\affiliationfont#1#2{\gdef\@affiliationfont{#1}\gdef\@eaffiliationfont{#2}}
+
+\gdef\@titlefont{\Large\bf}
+\gdef\@subtitlefont{\large\bf}
+\gdef\@etitlefont{\large}    % 英語のタイトルのフォント
+\gdef\@esubtitlefont{\normalsize}    % 英語のタイトルのフォント
+\gdef\@authorfont{\normalsize}
+\gdef\@affiliationfont{\normalsize}
+\gdef\@eauthorfont{\small} % 英語の著者名のフォント
+\gdef\@eaffiliationfont{\small} % 英語の所属のフォント
+
+\def\abst#1{\gdef\@abst{#1}}
+\def\title#1#2#3#4{\gdef\@title{#1} \gdef\@subtitle{#2} \gdef\@etitle{#3} \gdef\@esubtitle{#4}}
+\def\ThDatePlace#1#2#3{\gdef\@Th{#1} \gdef\@Date{#2} \gdef\@Place{#3}}
+
+%
+%       macro for author & affiliation
+%
+\newtoks\tmptoki
+\newtoks\tmptokii
+
+\def\leftappend#1::#2\to#3{%
+  \tmptoki={\\{#1::#2}}
+  \ifx#3\empty
+    \edef#3{\the\tmptoki}
+  \else
+    \tmptokii=\expandafter{#3}
+    \edef#3{\the\tmptokii\the\tmptoki}
+  \fi
+}
+
+\def\lop#1\to#2{\expandafter\lopoff#1\lopoff#1#2}
+\long\def\lopoff\\#1#2\lopoff#3#4{\def#4{#1}\def#3{#2}}
+%
+% macro for author & mauthor
+%
+%\let\@autor=\empty
+%\def\printauthor{%
+%\ifx\@author\empty
+%  \let\next=\relax
+%\else
+%  \let\next=\printauthor
+%  \lop\@author\to\a
+%  \expandafter\print\a
+%\fi
+%\next}
+
+
+\def\print#1::#2{
+  \hbox{#1}
+  \c@header=#2
+  \headermark%
+  \hskip\columnsep
+}
+%\let\@eautor=\empty
+%\def\printeauthor{%
+%\ifx\@eauthor\empty
+%  \let\next=\relax
+%\else
+%  \let\next=\printeauthor
+%  \lop\@eauthor\to\a
+%  \expandafter\print\a
+%\fi
+%\next}
+
+
+%
+% macro for affliation
+%
+\def\affiliation#1#2{%
+\@ifnextchar[{\@@organization{#1}{#2}}{\@@organization{#1}{#2}[0]}}
+
+\let\@organization=\empty
+\let\@eorganization=\empty
+
+\def\@@organization#1#2[#3]{%
+\leftappend#1::#3\to\@organization
+\leftappend#2::#3\to\@eorganization
+}
+
+\def\printorganization{%
+\ifx\@organization\empty
+  \let\next=\relax
+\else
+  \let\next=\printorganization
+  \lop\@organization\to\a
+  \expandafter\printo\a
+\fi
+\next}
+\def\printeorganization{%
+\ifx\@eorganization\empty
+  \let\next=\relax
+\else
+  \let\next=\printeorganization
+  \lop\@eorganization\to\a
+  \expandafter\eprinto\a
+\fi
+\next}
+
+\def\printo#1::#2{%
+  \orgmark{#2}%
+  \hbox{#1}
+  \hskip\columnsep
+}
+\def\eprinto#1::#2{%
+  \orgmark{#2}%
+  \hbox{#1}
+  \hskip\columnsep
+}
+
+%\def\author#1#2{\@ifnextchar[{\@@author{#1}{#2}}{\@@author{#1}{#2}[0]}}
+%\def\@@author#1#2[#3]{\leftappend#1::#3\to\@author
+%\leftappend#2::#3\to\@eauthor}%
+%\def\mauthor#1#2{\@ifnextchar[{\@@author{$\bigcirc$#1}{$\bigcirc$#2}}{\@@author{$\bigcirc$#1}{$\bigcirc$#2}[0]}}
+
+%\let\@author=\empty
+%\let\@eauthor=\empty
+
+%
+% dagger mark
+%
+\newcount\c@header
+\def\headermark{%
+$^{%
+\ifcase\c@header
+\or \dagger
+\or \dagger\dagger
+\or \dagger\dagger\dagger
+\or \dagger\dagger\dagger\dagger
+\else \dagger\dagger\dagger\dagger\dagger%
+\fi%
+}$
+}
+
+\def\orgmark#1{%
+$^{%
+\ifcase #1
+\or \dagger
+\or \dagger\dagger
+\or \dagger\dagger\dagger
+\or \dagger\dagger\dagger\dagger
+\else \dagger\dagger\dagger\dagger\dagger%
+\fi%
+}$
+}
+
+%
+%  \maketitle 
+%       request \MagTitle{}, \title{}{}, \author{}{}, \affiliation{}{}
+%
+
+\def\maketitle{\par
+ \begingroup
+\def\thefootnote{\fnsymbol{footnote}}
+\def\@makefnmark{\hbox 
+ to 0pt{$^{\@thefnmark}$\hss}} 
+ \if@twocolumn 
+ \twocolumn[\@maketitle] 
+ \else \newpage
+ \global\@topnum\z@ \@maketitle \fi\@thanks
+ \endgroup
+ \setcounter{footnote}{0}
+ \let\maketitle\relax\let\@maketitle\relax
+ \gdef\@etitle{}\let\thanks\relax} 
+
+\def\@maketitle{\newpage
+ \null
+
+% 日本語，英語のタイトルの表示 %%%%%%%%%%%%%%%%%%%
+
+ \begin{center}
+  \vskip -2zh%
+ {\@titlefont \@title \par}     % 日本語のタイトル
+ {\@subtitlefont \@subtitle \par}     % 日本語のタイトル
+
+ \vskip 1.0zh
+ {\@etitlefont \@etitle \par}        % 英語のタイトル
+ {\@esubtitlefont \@esubtitle}        % 英語のタイトル
+
+% 日本語，英語の著者名の表示 %%%%%%%%%%%%%%%%%%%
+ \null
+ \vskip 0.5zh 
+ \begin{center} %flushleft}
+   {%\lineskip .5em
+     \begin{tabular}[t]{l}
+       \@author 
+       \par
+       \@date
+     \end{tabular} \par
+     }
+ \end{center} %flushleft}
+
+% 日本語，英語の所属の表示 %%%%%%%%%%%%%%%%%%%
+
+\ifx\@organization\empty%
+\else%
+ \vskip 0.5em
+  \vbox{%
+    \@affiliationfont%
+    \hsize=\textwidth%
+    \leftskip=0pt plus 1fill%
+    \rightskip=0pt plus 1fill%
+    \leavevmode\printorganization%
+  }%
+\fi%
+
+\ifx\@organization\empty%
+\else%
+ \vskip 0.2em
+  \vbox{%
+    \@eaffiliationfont%
+    \hsize=\textwidth%
+    \leftskip=0pt plus 1fill%
+    \rightskip=0pt plus 1fill%
+    \leavevmode\printeorganization%
+  }%
+\fi%
+
+ \end{center}
+ \par
+ %\vskip 1.3em
+ }
+
+%       abstだけを1段組で出力する
+\def\abstract#1{\long\def\@abstract{#1}}
+\def\@abstract{}
+
+\def\keywords#1{\long\def\@keywords{#1}}
+\def\@keywords{}
+
+\let\@oldmaketitle=\@maketitle
+\def\@maketitle{
+  \@oldmaketitle
+  \begin{center}
+    \begin{minipage}{147mm} % 297mm -25mm(left) -25mm(right)
+      %{\bf Abstract: }
+	\qquad\@abstract
+
+  \vskip 1.0zh
+    {\itshape\textbf{Key Words}\bf: }{\small \@keywords}
+
+    \end{minipage}
+  \end{center}
+  \vskip 0.5zh
+}
+
+
+% end of file
