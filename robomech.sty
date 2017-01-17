@@ -27,7 +27,7 @@
 \textheight     247mm %           % 297mm - 25mm(head) - 25mm(bottom)
 \textwidth      180mm %           % 210mm - 15mm(left) - 15mm(right)
 
-\topmargin      -0.4mm            % 25mm(head) 
+\topmargin      -0.4mm            % 25mm(head)
 \headheight     0mm
 \headsep        0mm
 
@@ -65,21 +65,21 @@
 % figure, table caption を2行以上処理するために
 % caption の出力形式も変える．
 %
-% \@makecaption{NUMBER}{TEXT} : Macro to make a figure or table caption.  
-%      NUMBER : Figure or table number--e.g., 'Figure 3.2' 
+% \@makecaption{NUMBER}{TEXT} : Macro to make a figure or table caption.
+%      NUMBER : Figure or table number--e.g., 'Figure 3.2'
 %      TEXT   : The caption text.
 %  Macro should be called inside a \parbox of right width, with \normalsize.
 % changed 25 Jun 86 to fix according to Howard Trickey:
 % instead of \unhbox\@tempboxa\par we do #1: #2\par
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \long\def\@makecaption#1#2{
-   \vskip 10pt 
+   \vskip 10pt
    \setbox\@tempboxa\hbox{#1 #2}
    \ifdim \wd\@tempboxa >\hsize   % IF longer than one line:
        \@hangfrom{#1 }#2\par %\ignorespaces #2\strut \par %chaged on 89-09-07
        %#1 #2\par                 %   THEN set as ordinary paragraph.
      \else                        %   ELSE  center.
-       \hbox to\hsize{\hfil\box\@tempboxa\hfil}  
+       \hbox to\hsize{\hfil\box\@tempboxa\hfil}
    \fi}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -87,10 +87,10 @@
 %       Fig. 環境の caption を " {\bf Fig. ?} " に変える
 
 %\long\def\@makecaption#1#2{
-% \vskip 10pt 
+% \vskip 10pt
 % \setbox\@tempboxa\hbox{#1 #2}
 % \ifdim \wd\@tempboxa >\hsize \unhbox\@tempboxa\par \else \hbox
-%to\hsize{\hfil\box\@tempboxa\hfil} 
+%to\hsize{\hfil\box\@tempboxa\hfil}
 % \fi}
 \def\fnum@figure{{\bf Fig.\thefigure}}
 
@@ -271,23 +271,23 @@ $^{%
 }
 
 %
-%  \maketitle 
+%  \maketitle
 %       request \MagTitle{}, \title{}{}, \author{}{}, \affiliation{}{}
 %
 
 \def\maketitle{\par
  \begingroup
 \def\thefootnote{\fnsymbol{footnote}}
-\def\@makefnmark{\hbox 
- to 0pt{$^{\@thefnmark}$\hss}} 
- \if@twocolumn 
- \twocolumn[\@maketitle] 
+\def\@makefnmark{\hbox
+ to 0pt{$^{\@thefnmark}$\hss}}
+ \if@twocolumn
+ \twocolumn[\@maketitle]
  \else \newpage
  \global\@topnum\z@ \@maketitle \fi\@thanks
  \endgroup
  \setcounter{footnote}{0}
  \let\maketitle\relax\let\@maketitle\relax
- \gdef\@etitle{}\let\thanks\relax} 
+ \gdef\@etitle{}\let\thanks\relax}
 
 \def\@maketitle{\newpage
  \null
@@ -305,11 +305,11 @@ $^{%
 
 % 日本語，英語の著者名の表示 %%%%%%%%%%%%%%%%%%%
  \null
- \vskip 0.5zh 
+ \vskip 0.5zh
  \begin{center} %flushleft}
    {%\lineskip .5em
      \begin{tabular}[t]{l}
-       \@author 
+       \@author
        \par
        \@date
      \end{tabular} \par
