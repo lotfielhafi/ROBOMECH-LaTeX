@@ -1,20 +1,8 @@
-# ROBOMECH LaTeX テンプレートファイル
+# ROBOMECH-LaTeX
 
-このパッケージでROBOMECHのテンプレートファイルを簡単にオンラインツールで編集できます。
+（日本語訳はこの下にあります。）
 
-[ShareLaTeX](https://www.sharelatex.com/)などの近来のオンライン著作ツールを利用できるため、[ROBOMECH2017の元のテンプレートファイル](http://robomech.org/2017/en/papersubmit/)からpLaTeXの依存性をすべて抜きました。それ以上の変更をできるだけ少なくしました。
-
-LuaLaTeXコンパイラーを設定すれば、下記のツールを利用できます：
-* ShareLaTeX: [https://www.sharelatex.com/](https://www.sharelatex.com/)
-* Overleaf: [https://www.overleaf.com/](https://www.overleaf.com/)
-
-下記のパッケージに基づいています:
-* BXjscls: [https://github.com/zr-tex8r/BXjscls](https://github.com/zr-tex8r/BXjscls)
-* LuaTeX-ja: [https://www.ctan.org/pkg/luatexja?lang=en](https://www.ctan.org/pkg/luatexja?lang=en)
-
-
-
-# LaTeX ROBOMECH Template
+## Template Files
 
 This package improves the LaTeX compatibility of the Robotics and Mechatronics Conference (ROBOMECH) template for less painful manuscript preparation.
 
@@ -27,3 +15,17 @@ The current version has been confirmed to work with the following tools (using t
 This work could not have been done without the help of the following packages:
 * BXjscls: [https://github.com/zr-tex8r/BXjscls](https://github.com/zr-tex8r/BXjscls)
 * LuaTeX-ja: [https://www.ctan.org/pkg/luatexja?lang=en](https://www.ctan.org/pkg/luatexja?lang=en)
+
+## テンプレートファイル
+
+このパッケージでROBOMECHのテンプレートファイルを簡単にオンラインツールで編集できます。
+
+[ShareLaTeX](https://www.sharelatex.com/)などの最新のコラボレーションツールを利用するために編集されており、ROBOMECH 2017の公式テンプレートファイル（[http://robomech.org/2017/papersubmit/](http://robomech.org/2017/papersubmit/)）から、pLaTeXの依存性をすべて削除しています。それ以上の変更は最小限にしました。
+
+LuaLaTeXコンパイラーを設定すれば、下記のツールを利用できます。
+* ShareLaTeX: [https://www.sharelatex.com/](https://www.sharelatex.com/)
+* Overleaf: [https://www.overleaf.com/](https://www.overleaf.com/)
+
+下記のパッケージに基づいています。
+* BXjscls: [https://github.com/zr-tex8r/BXjscls](https://github.com/zr-tex8r/BXjscls)
+* LuaTeX-ja: [https://www.ctan.org/pkg/luatexja?lang=en](https://www.ctan.org/pkg/luatexja?lang=ja)
